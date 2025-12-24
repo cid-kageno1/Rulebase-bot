@@ -27,7 +27,6 @@
 
         .chat-header {
             padding: 12px;
-            background: #020617;
             border-bottom: 1px solid #1e293b;
             text-align: center;
             font-weight: bold;
@@ -93,49 +92,24 @@
 </div>
 
 <script>
-    const responses = {
-        hello: ["Hi there!", "Hello!", "Hey! How can I help you?"],
-        hi: ["Hi!", "Hello!", "Hey there!"],
-        bye: ["Goodbye!", "See you later!"],
-        thanks: ["You're welcome!", "No problem!"],
-        name: ["I am a simple rule-based chatbot."],
-        age: ["I don't have an age. I'm a program."]
-    };
-
-    const defaultResponses = [
-        "I'm not sure how to respond to that.",
-        "Can you rephrase?",
-        "I don't understand."
-    ];
-
-    function getResponse(input) {
-        const words = input.toLowerCase().split(" ");
-
-        for (const key in responses) {
-            if (words.includes(key)) {
-                const replies = responses[key];
-                return replies[Math.floor(Math.random() * replies.length)];
-            }
-        }
-
-        return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
-    }
+    const API_URL = "https://rulebase-bot1test.onrender.com/chat"; // 🔴 replace with real Render URL
 
     function addMessage(text, className) {
         const chatBox = document.getElementById("chatBox");
-        const message = document.createElement("div");
-        message.className = `message ${className}`;
-        message.textContent = text;
-        chatBox.appendChild(message);
+        const msg = document.createElement("div");
+        msg.className = `message ${className}`;
+        msg.textContent = text;
+        chatBox.appendChild(msg);
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    function sendMessage() {
+    async function sendMessage() {
         const input = document.getElementById("userInput");
         const text = input.value.trim();
         if (!text) return;
 
         addMessage("You: " + text, "user");
+        input.value = "";
 
         if (text.toLowerCase() === "bye" || text.toLowerCase() === "quit") {
             addMessage("Bot: Goodbye!", "bot");
@@ -143,10 +117,20 @@
             return;
         }
 
-        const reply = getResponse(text);
-        addMessage("Bot: " + reply, "bot");
+        try {
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: text })
+            });
 
-        input.value = "";
+            const data = await response.json();
+            addMessage("Bot: " + data.reply, "bot");
+
+        } catch (err) {
+            addMessage("Bot: Server error.", "bot");
+            console.error(err);
+        }
     }
 
     document.getElementById("userInput")
