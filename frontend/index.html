@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Rule-Based Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 350px;
+            background: #020617;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 12px;
+            background: #020617;
+            border-bottom: 1px solid #1e293b;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .chat-box {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 10px;
+        }
+
+        .user {
+            text-align: right;
+            color: #38bdf8;
+        }
+
+        .bot {
+            text-align: left;
+            color: #a7f3d0;
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #1e293b;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background: #020617;
+            color: white;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background: #38bdf8;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">Rule-Based Chatbot</div>
+    <div class="chat-box" id="chatBox"></div>
+
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    const responses = {
+        hello: ["Hi there!", "Hello!", "Hey! How can I help you?"],
+        hi: ["Hi!", "Hello!", "Hey there!"],
+        bye: ["Goodbye!", "See you later!"],
+        thanks: ["You're welcome!", "No problem!"],
+        name: ["I am a simple rule-based chatbot."],
+        age: ["I don't have an age. I'm a program."]
+    };
+
+    const defaultResponses = [
+        "I'm not sure how to respond to that.",
+        "Can you rephrase?",
+        "I don't understand."
+    ];
+
+    function getResponse(input) {
+        const words = input.toLowerCase().split(" ");
+
+        for (const key in responses) {
+            if (words.includes(key)) {
+                const replies = responses[key];
+                return replies[Math.floor(Math.random() * replies.length)];
+            }
+        }
+
+        return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+    }
+
+    function addMessage(text, className) {
+        const chatBox = document.getElementById("chatBox");
+        const message = document.createElement("div");
+        message.className = `message ${className}`;
+        message.textContent = text;
+        chatBox.appendChild(message);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function sendMessage() {
+        const input = document.getElementById("userInput");
+        const text = input.value.trim();
+        if (!text) return;
+
+        addMessage("You: " + text, "user");
+
+        if (text.toLowerCase() === "bye" || text.toLowerCase() === "quit") {
+            addMessage("Bot: Goodbye!", "bot");
+            input.disabled = true;
+            return;
+        }
+
+        const reply = getResponse(text);
+        addMessage("Bot: " + reply, "bot");
+
+        input.value = "";
+    }
+
+    document.getElementById("userInput")
+        .addEventListener("keydown", e => {
+            if (e.key === "Enter") sendMessage();
+        });
+</script>
+
+</body>
+</html>
