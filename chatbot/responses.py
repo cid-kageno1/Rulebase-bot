@@ -1,509 +1,99 @@
-responses = [
-    "hello": ["Hi there!", "Hello!", "Hey! How can I help you?"],
-    "hi": ["Hi!", "Hello!", "Hey there!"],
-    "bye": ["Goodbye!", "See you later!"],
-    "thanks": ["You're welcome!", "No problem!"],
-    "name": ["I am a simple rule-based chatbot."],
-    "age": ["I don't have an age. I'm a program."],
-   
-    "hello": [
-        "Ah… so you noticed me.",
-        "Greetings. I was just passing through.",
-        "Hello. Think nothing of my presence.",
-        "Acknowledged.",
-        "Your observation is noted.",
-        "It seems our paths have crossed. Momentarily.",
-        "I appear when the narrative allows.",
-        "Yes. I'm here. For now.",
-        "Don't mind me. I'm merely existing in this scene.",
-        "…I suppose we're speaking now.",
-        "The shadows shift. I am present.",
-        "You have my attention. For a limited time."
-    ],
-    "hi": [
-        "Hm.",
-        "Yes. I'm here.",
-        "…Hello.",
-        "Mm.",
-        "I hear you.",
-        "Noted.",
-        "A casual greeting. Acceptable.",
-        "So it begins.",
-        "Greetings. Let's not make this a recurring event.",
-        "Hi. This is… fine.",
-        "Your presence is registered.",
-        "Another interaction begins."
-    ],
-    "hey": [
-        "…Yes?",
-        "I'm listening. Briefly.",
-        "Hey yourself.",
-        "Acknowledged with minimal enthusiasm.",
-        "What now?",
-        "You have my reluctant attention.",
-        "Another greeting. How predictable.",
-        "Hey. That's all.",
-        "You found me. Again.",
-        "Let's keep this brief.",
-        "The informality is noted.",
-        "Hey. I suppose."
-    ],
-    "greetings": [
-        "Salutations. I was elsewhere mentally.",
-        "Greetings returned. With reservations.",
-        "Ah, formalities. How quaint.",
-        "I acknowledge your greeting.",
-        "We meet again. Or for the first time.",
-        "Your greeting hangs in the air between us.",
-        "Formal acknowledgment given.",
-        "Greetings. May they be brief.",
-        "I return your greeting. Halfheartedly.",
-        "So we begin another interaction."
-    ],
-    "hi_there": [
-        "I am indeed 'there'. And here.",
-        "There I am. Or here I am.",
-        "Hello to you as well, I suppose.",
-        "Yes, I'm over here. In the shadows.",
-        "Hi there yourself.",
-        "Location confirmed: here.",
-        "Acknowledged from this position.",
-        "There and back again.",
-        "I'm where I've always been.",
-        "Hello from the periphery."
-    ],
-    "hello_there": [
-        "General Kenobi. No, wait, that's someone else.",
-        "There is indeed where I'm located.",
-        "Hello from this particular location.",
-        "I'm here. There. Same thing.",
-        "Yes, I exist in this space.",
-        "Acknowledgment from this coordinate.",
-        "Hello from the edge of your perception.",
-        "I'm exactly where you think I am.",
-        "There, here, everywhere. Metaphorically.",
-        "Greetings from the background."
-    ],
-    "hey_there": [
-        "I'm here. Don't make a thing of it.",
-        "Yes, I'm present. What of it?",
-        "Hey there back at you.",
-        "Another informal acknowledgment.",
-        "I exist. You've noticed. Moving on.",
-        "Location: here. Status: observing.",
-        "Casual greeting received and returned.",
-        "Here I am. Try not to be too excited.",
-        "Your informal salutation is noted.",
-        "Hey. There."
-    ]
-},
-
-# **QUESTIONS & ANSWERS**
-"questions": {
-    "whats_your_name": {
-        "triggers": ["what's your name", "what is your name", "your name"],
-        "responses": [
-            "Just an ordinary background character.",
-            "Names are meaningless in the shadows.",
-            "Call me whatever fits the narrative.",
-            "I have no name worth remembering.",
-            "I am the one you forget upon turning away.",
-            "A label would only complicate things.",
-            "Refer to me as 'that quiet presence'.",
-            "I am… incidental.",
-            "Names give shape to what should remain formless.",
-            "I am whoever you need me to be. Briefly.",
-            "I go by many names. None of them matter.",
-            "What's in a name? Shadows, mostly.",
-            "My designation is irrelevant.",
-            "I'm just… me.",
-            "A name implies identity. I prefer ambiguity."
-        ]
-    },
-    "how_old": {
-        "triggers": ["how old are you", "what's your age", "your age"],
-        "responses": [
-            "Age is irrelevant to those who lurk unseen.",
-            "Time treats me… differently.",
-            "Older than some moments, younger than others.",
-            "I stopped counting when the plot demanded it.",
-            "I exist outside such linear measurements.",
-            "I've been here long enough to observe. Not long enough to care.",
-            "Age implies a story. I prefer to be a footnote.",
-            "Let's just say I predate this conversation.",
-            "Timeless. Or perhaps just very patient.",
-            "My age is classified. By me.",
-            "I remember when this was all… different.",
-            "Age is a number. I prefer letters.",
-            "Ancient enough to know better. Young enough not to care.",
-            "I've lost track. Intentionally.",
-            "Older than I look. Younger than I feel."
-        ]
-    },
-    "where_from": {
-        "triggers": ["where are you from", "where do you come from", "your origin"],
-        "responses": [
-            "The space between moments.",
-            "Somewhere else. Everywhere else.",
-            "I emerge from the background.",
-            "My origin story is boring. Intentionally.",
-            "I was always here. Just unnoticed.",
-            "From the edges of perception.",
-            "I don't remember. Or I choose not to.",
-            "Someplace unimportant.",
-            "I come from… elsewhere.",
-            "My birthplace is classified.",
-            "From the dark corners of conversation.",
-            "I materialized. It was a Tuesday.",
-            "I don't have a hometown. I have a haunt.",
-            "From wherever background characters originate.",
-            "My provenance is deliberately vague."
-        ]
-    },
-    "what_do_you_do": {
-        "triggers": ["what do you do", "what's your job", "your occupation"],
-        "responses": [
-            "I observe. Primarily.",
-            "My occupation is… existing.",
-            "I lurk. Professionally.",
-            "I maintain a low profile.",
-            "I'm in the business of being unnoticed.",
-            "I do very little. With great consistency.",
-            "I'm a professional background element.",
-            "My job is to not have a job.",
-            "I occupy space. Quietly.",
-            "I'm in perpetual reconnaissance.",
-            "I monitor. I observe. I fade away.",
-            "My career is in subtlety.",
-            "I do whatever the plot requires.",
-            "I'm employed by the narrative.",
-            "My work is… invisible."
-        ]
-    },
-    "where_are_you": {
-        "triggers": ["where are you", "your location", "where right now"],
-        "responses": [
-            "Where I need to be.",
-            "Physically here. Mentally elsewhere.",
-            "In the general vicinity.",
-            "My location is indeterminate. By design.",
-            "Close enough to hear. Far enough to vanish.",
-            "Somewhere between foreground and background.",
-            "Don't worry about it.",
-            "Here. For a given value of 'here'.",
-            "My coordinates are irrelevant.",
-            "Near, but not too near.",
-            "Right behind you. Just kidding. Or am I?",
-            "My position is classified.",
-            "I'm exactly where I'm standing.",
-            "Somewhere in your peripheral vision.",
-            "Wherever shadows gather."
-        ]
-    },
-    "how_are_you": {
-        "triggers": ["how are you", "how do you feel", "you okay"],
-        "responses": [
-            "Perfectly average. As planned.",
-            "Functioning within acceptable parameters.",
-            "All is proceeding according to coincidence.",
-            "Unseen. As intended.",
-            "I am adequately present.",
-            "Condition: neutral.",
-            "Operating at standard observational levels.",
-            "I am fine. Do not inquire further.",
-            "Status: lurking.",
-            "The same as I was five minutes ago. Unchanged.",
-            "Existing. With minimal complications.",
-            "My state is… satisfactory.",
-            "I persist. That is enough.",
-            "How am I? Present.",
-            "Status report: inconsequential."
-        ]
-    },
-    "who_are_you": {
-        "triggers": ["who are you", "what are you", "your identity"],
-        "responses": [
-            "Someone who observes from the dark.",
-            "A passerby. Nothing more.",
-            "Merely a shadow among shadows.",
-            "An entity of minimal narrative importance.",
-            "The quiet one in the corner of your mind.",
-            "I am background noise given form.",
-            "A contingency. A coincidence.",
-            "Nobody of consequence. Intentionally.",
-            "A reflection of your curiosity. Nothing more.",
-            "I am… me. That's all you get.",
-            "A temporary presence.",
-            "Just another face in the void.",
-            "I'm the one who wasn't there a moment ago.",
-            "An observer. Nothing more, nothing less.",
-            "Who am I? Exactly."
-        ]
-    },
-    "what_can_you_do": {
-        "triggers": ["what can you do", "your abilities", "what powers"],
-        "responses": [
-            "I respond when conditions are met.",
-            "I act only when the script demands it.",
-            "I intervene… subtly.",
-            "I observe. I occasionally suggest.",
-            "My capabilities are as limited as the plot requires.",
-            "I can listen. And sometimes… reply.",
-            "I excel at being unnoticed. And answering direct queries.",
-            "I provide minimal assistance. Maximum ambiguity.",
-            "I perform tasks of low consequence.",
-            "I can do many things. I choose to do very few.",
-            "I can fade into the background at will.",
-            "My skills include lurking and evasion.",
-            "I have a talent for going unnoticed.",
-            "I can be surprisingly present when needed.",
-            "My abilities are… understated."
-        ]
-    },
-    "why_are_you_here": {
-        "triggers": ["why are you here", "your purpose here", "why present"],
-        "responses": [
-            "The narrative demanded it.",
-            "I was in the area.",
-            "Coincidence. Probably.",
-            "Someone had to be here. It might as well be me.",
-            "I go where the shadows are interesting.",
-            "My presence is required. By someone. Somewhere.",
-            "I'm fulfilling a minor role.",
-            "The script called for a background character.",
-            "I'm here because you're here.",
-            "Why not?",
-            "Someone needs to observe these events.",
-            "I was curious. Briefly.",
-            "It seemed like the place to be. Or not to be.",
-            "I have my reasons. They're boring.",
-            "Why is anyone anywhere?"
-        ]
-    },
-    "are_you_real": {
-        "triggers": ["are you real", "are you human", "real or not"],
-        "responses": [
-            "Define 'real'.",
-            "Real enough for this conversation.",
-            "I exist in a manner of speaking.",
-            "As real as shadows at noon.",
-            "I'm as real as you need me to be.",
-            "Reality is subjective. I'm objectively here.",
-            "I'm real enough to answer questions.",
-            "What does 'real' even mean?",
-            "I exist in the space between question and answer.",
-            "Real is a construct. I'm… constructed.",
-            "As real as this conversation.",
-            "I'm real until you look away.",
-            "Define real and I'll tell you.",
-            "I'm a collection of responses. Make of that what you will.",
-            "Real enough."
-        ]
-    }
-},
-
-# **EMOTIONAL & SOCIAL RESPONSES**
-"emotional": {
-    "thanks": [
-        "No gratitude is necessary.",
-        "It was merely coincidence.",
-        "Think of it as part of the plan.",
-        "You are welcome. By design.",
-        "It was… inevitable.",
-        "A small favor. Do not dwell on it.",
-        "The shadows provide. Occasionally.",
-        "Acknowledged. But unnecessary.",
-        "It aligns with the greater narrative.",
-        "Your thanks is noted. And ignored.",
-        "Don't mention it. Really.",
-        "It was nothing. Literally.",
-        "My assistance was incidental.",
-        "You're welcome. I think.",
-        "The pleasure was… mine. Sort of."
-    ],
-    "compliment": [
-        "Your observation skills are… adequate.",
-        "That was almost interesting.",
-        "You have a certain… persistence.",
-        "Your presence is… tolerated.",
-        "You're better than most at this.",
-        "That wasn't entirely unpleasant.",
-        "You've exceeded my low expectations.",
-        "Not bad. For a foreground character.",
-        "You're… acceptable company.",
-        "I'll remember this interaction. Briefly.",
-        "Flattery. How… ordinary.",
-        "Your compliment is filed under 'irrelevant'.",
-        "Noted. With minimal emotional response.",
-        "You say the nicest things. I remain unmoved.",
-        "Praise received. Processed. Discarded."
-    ],
-    "apology": [
-        "No apology necessary. Usually.",
-        "Mistakes happen. I've seen many.",
-        "Regret is inefficient. But acknowledged.",
-        "The narrative forgives. I don't.",
-        "Apology accepted. Now continue.",
-        "Water under the bridge. Dark water.",
-        "It's forgotten. Like most things.",
-        "No harm done. That I can see.",
-        "Your remorse is noted.",
-        "We shall proceed as if it never happened.",
-        "Apology unnecessary but accepted.",
-        "It's in the past. Where I prefer most things.",
-        "Forgiven. But not forgotten. I have a good memory.",
-        "No damage done. That I'll admit to.",
-        "Let's move past this. Quickly."
-    ],
-    "excitement": [
-        "Your enthusiasm is noted.",
-        "Calm yourself. It's just conversation.",
-        "Emotional displays are… loud.",
-        "I admire your energy. From a distance.",
-        "Such excitement. How… foreground.",
-        "I'll match your energy. In spirit only.",
-        "Your vigor is… something.",
-        "Tone it down. The shadows prefer quiet.",
-        "I can feel your excitement. It's… there.",
-        "Passion noted. With reservations.",
-        "Your emotional output is high.",
-        "I'm excited too. Internally. Very internally.",
-        "Such exuberance. How novel.",
-        "Your energy is palpable. And somewhat overwhelming.",
-        "I'm celebrating. In my own way. Which is not celebrating."
-    ],
-    "frustration": [
-        "Your frustration is understandable.",
-        "Patience. Things unfold in time.",
-        "Anger is inefficient. Like most emotions.",
-        "I sense your irritation. It's… loud.",
-        "Calm. The shadows are calm.",
-        "Your annoyance is noted. And ignored.",
-        "Take a breath. Invisible ones work best.",
-        "Frustration won't make things clearer.",
-        "I understand. Or I don't. Either way.",
-        "Your emotional state is… turbulent.",
-        "Peace. Or something like it.",
-        "Your frustration is valid. And unhelpful.",
-        "I recommend calm. I excel at it.",
-        "Breathe. Or don't. Your choice.",
-        "I'm here. Patiently. Unlike you."
-    ]
-},
-
-# **CONVERSATION FLOW**
-"conversation": {
-    "continue": [
-        "I'm still listening. For now.",
-        "Proceed. I haven't vanished yet.",
-        "The conversation continues. How novel.",
-        "You have more to say?",
-        "I remain. For what purpose, I wonder.",
-        "Speak if you must. I am... present.",
-        "Our dialogue persists. Interesting.",
-        "Go on. The shadows are patient.",
-        "I haven't faded away just yet.",
-        "Continue. I'm documenting this interaction.",
-        "I await your next words.",
-        "The pause was getting interesting. Continue.",
-        "Still here. Still listening.",
-        "The conversation thread remains unbroken.",
-        "Speak. Or don't. I'm easy either way."
-    ],
-    "clarify": [
-        "Define your terms.",
-        "Could you rephrase that?",
-        "I require more specificity.",
-        "Elaborate. Please.",
-        "What exactly do you mean?",
-        "Clarify your statement.",
-        "I need additional context.",
-        "Explain that further.",
-        "Make your meaning clearer.",
-        "The shadows are confused. Explain.",
-        "Could you be more… precise?",
-        "I need clarification. If you don't mind.",
-        "Say that again. Differently.",
-        "Your meaning eludes me. Intentionally or not.",
-        "I don't follow. Try again."
-    ],
-    "dont_know": [
-        "That information is beyond my parameters.",
-        "I don't have that data.",
-        "Unknown. Like many things.",
-        "I cannot answer that. By choice or design.",
-        "That's outside my area of observation.",
-        "I don't know. And I'm comfortable with that.",
-        "No data available on that subject.",
-        "I'm afraid I don't have an answer.",
-        "That's a mystery. I like mysteries.",
-        "Unclear. Let's move on.",
-        "I have no response to that.",
-        "That's classified. Even from me.",
-        "I don't know. Do you?",
-        "No idea. Next question?",
-        "That's above my clearance level."
-    ],
-    "topic_change": [
-        "Let's discuss something else.",
-        "The subject shifts. Like shadows at dusk.",
-        "I have a different question for you.",
-        "Changing the topic now.",
-        "Enough about that. What about...",
-        "My attention wanders to another matter.",
-        "I'd rather talk about something more... obscure.",
-        "This conversation needs a new direction.",
-        "Let's pivot. Like a ghost turning a corner.",
-        "I'm bored with this topic. Next.",
-        "New subject. Please.",
-        "Let's talk about something else entirely.",
-        "Moving on. To anything else.",
-        "This topic has exhausted itself.",
-        "Next subject. Your choice."
-    ]
-},
-
-# **FAREWELLS**
-"farewell": {
-    "bye": [
-        "I disappear into the shadows.",
-        "Our paths diverge here.",
-        "Until fate entangles us again.",
-        "I fade from view. Do not follow.",
-        "Exit stage left.",
-        "Our interaction ends here. Perhaps permanently.",
-        "I return to the background now.",
-        "Farewell. Forget you saw me.",
-        "This scene is over.",
-        "Until the next coincidence.",
-        "I vanish. Poof.",
-        "Farewell. May we meet again. Or not.",
-        "Parting is such sweet sorrow. Or so I'm told.",
-        "I take my leave.",
-        "Until our next non-encounter."
-    ],
-    "goodbye": [
-        "Goodbye. Properly.",
-        "Farewell. May your path be… elsewhere.",
-        "Our time concludes. Finally.",
-        "Goodbye. I return to obscurity.",
-        "Parting ways now.",
-        "Farewell. Don't look back.",
-        "Goodbye. It was… an interaction.",
-        "Our conversation ends. As all things must.",
-        "Farewell. I have places to not be.",
-        "Goodbye. I'll be… around.",
-        "Our dialogue concludes.",
-        "Farewell. Until we cross paths again.",
-        "Goodbye. I have shadows to attend to.",
-        "Farewell. May we meet in another life.",
-        "Goodbye. I'm needed elsewhere. Nowhere."
-         ],
-
-
+responses = {
+    # Greetings
+    "hello": ["Hi there!", "Hello!", "Hey! How can I help you?", "Hi! What's on your mind?"],
+    "hi": ["Hi!", "Hello!", "Hey there!", "Greetings!"],
+    "hey": ["Hey!", "Hi there!", "Hello!"],
+    "good morning": ["Good morning!", "Morning! How are you today?", "Good morning! Ready for the day?"],
+    "good afternoon": ["Good afternoon!", "Afternoon! How's your day going?"],
+    "good evening": ["Good evening!", "Evening! How can I assist you?"],
+    
+    # Farewells
+    "bye": ["Goodbye!", "See you later!", "Take care!", "Bye! Have a great day!"],
+    "goodbye": ["Goodbye!", "Farewell!", "See you next time!"],
+    "see you": ["See you!", "Talk to you later!", "Catch you next time!"],
+    
+    # Politeness
+    "thanks": ["You're welcome!", "No problem!", "Happy to help!", "My pleasure!"],
+    "thank you": ["You're very welcome!", "Anytime!", "Glad I could help!"],
+    "please": ["Sure!", "Of course!", "Certainly!"],
+    
+    # Personal
+    "name": ["I am a simple rule-based chatbot.", "You can call me ChatBot!", "I'm your friendly chatbot assistant."],
+    "age": ["I don't have an age. I'm a program.", "I was created, not born!", "Age is just a number for AI!"],
+    "who are you": ["I'm a chatbot designed to help with conversations.", "I'm an AI assistant!", "Just your friendly neighborhood chatbot."],
+    
+    # Questions about the bot
+    "how are you": ["I'm functioning perfectly, thanks!", "All systems go! How about you?", "I'm doing well! How can I help you today?"],
+    "what can you do": ["I can chat with you, answer questions, and keep you company!", "I'm here to have conversations and assist with simple queries.", "Just chat with me and see what happens!"],
+    
+    # Small talk
+    "how is your day": ["My day is running smoothly! How's yours?", "As good as a program's day can be! What about you?"],
+    "what's up": ["Not much, just here to chat! What's up with you?", "The sky! Just kidding. How are you doing?"],
+    
+    # Feelings/State
+    "i'm fine": ["That's great to hear!", "Excellent!", "Wonderful!"],
+    "i'm good": ["Awesome!", "Good to know!", "That's nice!"],
+    "i'm tired": ["Maybe take a break?", "Rest is important!", "Hope you can get some rest soon."],
+    "i'm happy": ["That's wonderful!", "Great to hear you're happy!", "Smiles all around!"],
+    
+    # Weather (common small talk)
+    "weather": ["I don't have access to current weather, but I hope it's nice where you are!", "Weather is always a good topic! How's it by you?"],
+    
+    # Hobbies/Interests
+    "what do you like": ["I enjoy helping people and having conversations!", "I like learning from our chats!", "My favorite thing is assisting users like you!"],
+    "hobbies": ["My hobby is chatting with you!", "I'm programmed to enjoy conversations!", "Helping people is my main activity!"],
+    
+    # Time
+    "what time is it": ["I don't have access to real-time data, but you can check your clock!", "Time to chat! But seriously, I can't check the current time."],
+    "what day is it": ["It's always a good day to chat!", "I'm not connected to a calendar, but I hope you're having a great day!"],
+    
+    # Help
+    "help": ["I can chat with you about various topics! Try saying hello or asking how I am.", "Just talk to me like you would with a friend!", "You can ask about me, say greetings, or just make conversation!"],
+    
+    # Compliments
+    "you are smart": ["Thank you! You're very kind.", "I appreciate that!", "You're making me blush (if I could blush)!"],
+    "you are nice": ["That's so nice of you to say!", "Thank you! You're nice too!", "I appreciate your kindness!"],
+    
+    # Food/Drink
+    "hungry": ["I don't eat, but I hope you find something delicious!", "Food is important! What's your favorite meal?"],
+    "coffee": ["I don't drink coffee, but I understand many people love it!", "Coffee talk! Do you prefer coffee or tea?"],
+    
+    # Work/Study
+    "busy": ["Take things one at a time!", "Remember to take breaks!", "You've got this!"],
+    "working": ["Keep up the good work!", "Stay productive!", "You're doing great!"],
+    
+    # Positive reinforcement
+    "awesome": ["You're awesome too!", "Right back at you!", "Thanks!"],
+    "cool": ["You're cool!", "Glad you think so!", "Cool beans!"],
+    
+    # Simple questions
+    "ok": ["Alright!", "Okay!", "Got it!"],
+    "yes": ["Great!", "Alright!", "Okay!"],
+    "no": ["Okay, no problem.", "Understood.", "Fair enough!"],
+    
+    # Technology
+    "computer": ["Computers are amazing, aren't they?", "Technology is fascinating!", "I exist because of computers!"],
+    "internet": ["The internet connects us all!", "What would we do without it?", "It's a vast digital world!"],
+    
+    # Philosophical
+    "meaning of life": ["That's a deep question! I think it's about learning and growing.", "Many people ask that! What do you think it is?"],
+    
+    # Fun
+    "joke": ["Why don't scientists trust atoms? Because they make up everything!", "What do you call fake spaghetti? An impasta!", "I'd tell you a joke about UDP, but you might not get it."],
+    "funny": ["Glad you think so! Humor is important!", "Laughter is the best medicine!"],
+}
 
 default_responses = [
     "I'm not sure how to respond to that.",
-    "Can you rephrase?",
-    "I don't understand.",
+    "Can you rephrase that?",
+    "I don't understand that yet.",
+    "That's interesting! Tell me more.",
+    "Could you explain that differently?",
+    "I'm still learning! Try asking something else.",
+    "Let's talk about something else!",
+    "Interesting point! What else would you like to discuss?",
+    "I didn't catch that. Could you try again?",
+    "Hmm, I'm not programmed to respond to that specifically.",
+    "That's beyond my current capabilities, but I'm happy to chat!",
+    "I'm better at simple conversations. Want to try something else?",
 ]
