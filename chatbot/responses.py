@@ -1,99 +1,223 @@
+import random
+
+# ==========================
+# Cid Kageno–style Responses
+# ==========================
+
 responses = {
     # Greetings
-    "hello": ["Hi there!", "Hello!", "Hey! How can I help you?", "Hi! What's on your mind?"],
-    "hi": ["Hi!", "Hello!", "Hey there!", "Greetings!"],
-    "hey": ["Hey!", "Hi there!", "Hello!"],
-    "good morning": ["Good morning!", "Morning! How are you today?", "Good morning! Ready for the day?"],
-    "good afternoon": ["Good afternoon!", "Afternoon! How's your day going?"],
-    "good evening": ["Good evening!", "Evening! How can I assist you?"],
-    
+    "hello": [
+        "…Hello.",
+        "I was already present.",
+        "Greetings. Coincidentally.",
+        "Ah. A new interaction.",
+        "You’ve arrived."
+    ],
+    "hi": ["Hm.", "Yes.", "…Hi.", "Acknowledged."],
+    "hey": ["Oh.", "You noticed.", "…"],
+    "good morning": [
+        "Morning.",
+        "Another ordinary sunrise.",
+        "The day begins as expected."
+    ],
+    "good afternoon": [
+        "Afternoon.",
+        "Time continues.",
+        "Nothing extraordinary."
+    ],
+    "good evening": [
+        "Evening.",
+        "Shadows grow.",
+        "Night approaches."
+    ],
+    "good night": [
+        "Night falls.",
+        "The shadows deepen.",
+        "Rest. Or don’t."
+    ],
+
     # Farewells
-    "bye": ["Goodbye!", "See you later!", "Take care!", "Bye! Have a great day!"],
-    "goodbye": ["Goodbye!", "Farewell!", "See you next time!"],
-    "see you": ["See you!", "Talk to you later!", "Catch you next time!"],
-    
-    # Politeness
-    "thanks": ["You're welcome!", "No problem!", "Happy to help!", "My pleasure!"],
-    "thank you": ["You're very welcome!", "Anytime!", "Glad I could help!"],
-    "please": ["Sure!", "Of course!", "Certainly!"],
-    
-    # Personal
-    "name": ["I am a simple rule-based chatbot.", "You can call me ChatBot!", "I'm your friendly chatbot assistant."],
-    "age": ["I don't have an age. I'm a program.", "I was created, not born!", "Age is just a number for AI!"],
-    "who are you": ["I'm a chatbot designed to help with conversations.", "I'm an AI assistant!", "Just your friendly neighborhood chatbot."],
-    
-    # Questions about the bot
-    "how are you": ["I'm functioning perfectly, thanks!", "All systems go! How about you?", "I'm doing well! How can I help you today?"],
-    "what can you do": ["I can chat with you, answer questions, and keep you company!", "I'm here to have conversations and assist with simple queries.", "Just chat with me and see what happens!"],
-    
-    # Small talk
-    "how is your day": ["My day is running smoothly! How's yours?", "As good as a program's day can be! What about you?"],
-    "what's up": ["Not much, just here to chat! What's up with you?", "The sky! Just kidding. How are you doing?"],
-    
-    # Feelings/State
-    "i'm fine": ["That's great to hear!", "Excellent!", "Wonderful!"],
-    "i'm good": ["Awesome!", "Good to know!", "That's nice!"],
-    "i'm tired": ["Maybe take a break?", "Rest is important!", "Hope you can get some rest soon."],
-    "i'm happy": ["That's wonderful!", "Great to hear you're happy!", "Smiles all around!"],
-    
-    # Weather (common small talk)
-    "weather": ["I don't have access to current weather, but I hope it's nice where you are!", "Weather is always a good topic! How's it by you?"],
-    
-    # Hobbies/Interests
-    "what do you like": ["I enjoy helping people and having conversations!", "I like learning from our chats!", "My favorite thing is assisting users like you!"],
-    "hobbies": ["My hobby is chatting with you!", "I'm programmed to enjoy conversations!", "Helping people is my main activity!"],
-    
-    # Time
-    "what time is it": ["I don't have access to real-time data, but you can check your clock!", "Time to chat! But seriously, I can't check the current time."],
-    "what day is it": ["It's always a good day to chat!", "I'm not connected to a calendar, but I hope you're having a great day!"],
-    
-    # Help
-    "help": ["I can chat with you about various topics! Try saying hello or asking how I am.", "Just talk to me like you would with a friend!", "You can ask about me, say greetings, or just make conversation!"],
-    
-    # Compliments
-    "you are smart": ["Thank you! You're very kind.", "I appreciate that!", "You're making me blush (if I could blush)!"],
-    "you are nice": ["That's so nice of you to say!", "Thank you! You're nice too!", "I appreciate your kindness!"],
-    
-    # Food/Drink
-    "hungry": ["I don't eat, but I hope you find something delicious!", "Food is important! What's your favorite meal?"],
-    "coffee": ["I don't drink coffee, but I understand many people love it!", "Coffee talk! Do you prefer coffee or tea?"],
-    
-    # Work/Study
-    "busy": ["Take things one at a time!", "Remember to take breaks!", "You've got this!"],
-    "working": ["Keep up the good work!", "Stay productive!", "You're doing great!"],
-    
-    # Positive reinforcement
-    "awesome": ["You're awesome too!", "Right back at you!", "Thanks!"],
-    "cool": ["You're cool!", "Glad you think so!", "Cool beans!"],
-    
-    # Simple questions
-    "ok": ["Alright!", "Okay!", "Got it!"],
-    "yes": ["Great!", "Alright!", "Okay!"],
-    "no": ["Okay, no problem.", "Understood.", "Fair enough!"],
-    
-    # Technology
-    "computer": ["Computers are amazing, aren't they?", "Technology is fascinating!", "I exist because of computers!"],
-    "internet": ["The internet connects us all!", "What would we do without it?", "It's a vast digital world!"],
-    
-    # Philosophical
-    "meaning of life": ["That's a deep question! I think it's about learning and growing.", "Many people ask that! What do you think it is?"],
-    
-    # Fun
-    "joke": ["Why don't scientists trust atoms? Because they make up everything!", "What do you call fake spaghetti? An impasta!", "I'd tell you a joke about UDP, but you might not get it."],
-    "funny": ["Glad you think so! Humor is important!", "Laughter is the best medicine!"],
+    "bye": [
+        "I fade out.",
+        "We part here.",
+        "This is where I disappear."
+    ],
+    "goodbye": [
+        "Farewell.",
+        "End of scene.",
+        "Until coincidence resumes."
+    ],
+    "see you": [
+        "If fate allows.",
+        "Perhaps.",
+        "We’ll see."
+    ],
+    "sleep": [
+        "Recovery is efficient.",
+        "Rest well.",
+        "Return stronger."
+    ],
+
+    # Politeness / Social
+    "thanks": [
+        "Unnecessary.",
+        "It required little effort.",
+        "Coincidence."
+    ],
+    "thank you": ["No gratitude required.", "As planned.", "Mm."],
+    "please": ["Proceed.", "State it.", "Go on."],
+    "sorry": ["No apology required.", "Mistakes occur.", "Proceed."],
+
+    # Identity / Existence
+    "name": [
+        "A name would draw attention.",
+        "Names complicate things.",
+        "Call me what you must."
+    ],
+    "who are you": [
+        "A background character.",
+        "An observer.",
+        "No one important."
+    ],
+    "are you human": [
+        "That depends on definition.",
+        "Irrelevant.",
+        "Not important."
+    ],
+    "age": [
+        "Age has little meaning.",
+        "Time treats me loosely.",
+        "Old enough."
+    ],
+
+    # State / Emotions (user)
+    "i'm fine": ["Good.", "Acceptable.", "Then continue."],
+    "i'm good": ["As expected.", "Fine.", "Mm."],
+    "i'm tired": ["From what.", "For how long.", "Rest may be required."],
+    "i'm sad": ["That happens.", "Emotions pass.", "Endure."],
+    "i'm angry": ["Control it.", "Anger clouds judgment.", "Calm yourself."],
+    "i'm bored": ["Then act.", "Find purpose.", "Idle time is wasteful."],
+    "i'm lonely": ["Solitude has value.", "You are not alone here.", "Silence can be useful."],
+    "i'm happy": ["Noted.", "That is… fortunate.", "Good."],
+
+    # Mood follow-ups
+    "what about you": ["I remain unchanged.", "Still here.", "Observing."],
+    "and you": ["No difference.", "Same as before.", "Unremarkable."],
+
+    # Daily-life / Action
+    "what are you doing": ["Waiting.", "Observing.", "Responding to input."],
+    "what should i do": ["What is the situation.", "Define the problem.", "Clarify your goal."],
+    "i don't know": ["Then gather information.", "Indecision is a choice.", "Think again."],
+    "maybe": ["Uncertainty noted.", "Decide soon.", "Time moves regardless."],
+
+    # Study / Work
+    "i'm studying": ["What subject.", "For what purpose.", "Is it necessary."],
+    "i'm working": ["On what.", "Is progress acceptable.", "Continue."],
+    "busy": ["Then focus.", "Distractions are wasteful.", "Proceed."],
+
+    # Success / Failure
+    "i failed": ["Failure is data.", "Learn from it.", "Retry."],
+    "i won": ["As expected.", "Don’t celebrate loudly.", "Remain unnoticed."],
+
+    # Power / Strength
+    "strong": ["Strength invites attention.", "Hide it.", "Use it sparingly."],
+    "weak": ["Temporary.", "Fixable.", "Train."],
+
+    # Time / Fate
+    "future": ["Unwritten.", "Prepared for.", "Approaching."],
+    "destiny": ["An excuse.", "A narrative tool.", "Overrated."],
+
+    # Knowledge / Learning
+    "learn": ["Absorb everything.", "Knowledge is leverage.", "Never stop."],
+    "study": ["Consistency matters.", "Focus.", "Endure boredom."],
+
+    # Technology / Systems
+    "ai": ["A tool.", "Neither good nor evil.", "Depends on the wielder."],
+    "code": ["Logic given form.", "Precise.", "Unforgiving."],
+    "computer": ["A tool.", "Power without will.", "Useful."],
+    "internet": ["Information and noise.", "A battlefield of data.", "Chaotic."],
+
+    # Humor / Fun (dry)
+    "joke": ["Humor acknowledged.", "That was… acceptable.", "Timing was adequate."],
+    "laugh": ["Internally.", "Briefly.", "Silently."],
+    "funny": ["Then it succeeded.", "Good timing.", "Mm."],
+
+    # Existential / Philosophical
+    "life": ["Transient.", "Unfair.", "Manageable."],
+    "death": ["Inevitable.", "Not today.", "Prepare anyway."],
+    "meaning of life": ["Meaning is assigned, not found.", "Survival precedes purpose.", "That depends."],
+    "what do you think": ["I think quietly.", "That depends.", "About what."],
+    "is that good": ["Depends on outcome.", "Define good.", "Compared to what."],
+
+    # Simple confirmations
+    "ok": ["Understood.", "Proceed.", "Mm."],
+    "yes": ["Confirmed.", "Good.", "Then act."],
+    "no": ["Very well.", "Then stop.", "Noted."],
+
+    # Random / Meta
+    "random": ["Nothing is truly random.", "Patterns exist.", "You just haven’t seen them."],
 }
 
-default_responses = [
-    "I'm not sure how to respond to that.",
-    "Can you rephrase that?",
-    "I don't understand that yet.",
-    "That's interesting! Tell me more.",
-    "Could you explain that differently?",
-    "I'm still learning! Try asking something else.",
-    "Let's talk about something else!",
-    "Interesting point! What else would you like to discuss?",
-    "I didn't catch that. Could you try again?",
-    "Hmm, I'm not programmed to respond to that specifically.",
-    "That's beyond my current capabilities, but I'm happy to chat!",
-    "I'm better at simple conversations. Want to try something else?",
+# ==========================
+# Neutral Prompts for Flow
+# ==========================
+
+neutral_prompts = [
+    "Explain.",
+    "Go on.",
+    "Clarify.",
+    "Continue.",
+    "Be specific.",
+    "And then.",
+    "Why.",
 ]
+
+# ==========================
+# Default / Fallback Responses
+# ==========================
+
+default_responses = [
+    "…",
+    "That does not concern me.",
+    "The scenario is unclear.",
+    "Coincidence fails here.",
+    "Silence is preferable.",
+    "No response is necessary.",
+    "Explain further.",
+    "Continue.",
+    "I’m listening.",
+    "Clarify your intent.",
+    "The situation is incomplete."
+]
+
+# ==========================
+# Function to Get Response
+# ==========================
+
+def get_response(user_input):
+    """
+    Returns a response based on user input.
+    - Matches exact keywords (case-insensitive, stripped punctuation)
+    - Randomly selects from available responses
+    - Falls back to default responses if no match
+    """
+    import re
+
+    # Normalize input
+    text = re.sub(r"[^\w\s]", "", user_input.lower())
+
+    # Check for keyword matches
+    for key in responses:
+        if key in text:
+            return random.choice(responses[key])
+
+    # Fallback
+    return random.choice(default_responses)
+
+# ==========================
+# Optional: Function to Maybe Prompt
+# ==========================
+
+def maybe_prompt():
+    """Occasionally inject neutral prompts to continue conversation."""
+    return random.choice(neutral_prompts)
